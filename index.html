@@ -1,0 +1,118 @@
+<html ng-app>
+    
+    <head>
+        <title>
+            GiLuc Gifts
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset='utf-8' />
+        <link href='http://fonts.googleapis.com/css?family=Orienta' rel='stylesheet'
+        type='text/css'>
+        <!-- Le styles -->
+        <script type="text/javascript" src="./js/jquery-2.1.0.min.js">
+                                                                                                                                                                                
+        </script>
+        <script type="text/javascript" src="./js/bootstrap.min.js">
+                                                                                                                                                                                
+        </script>
+        <script type="text/javascript" src="./js/main.js">
+                                                                                                                                                                                
+        </script>
+        <link href="./css/bootstrap.min.css" rel="stylesheet" type='text/css'>
+        <link href="./css/bootstrap-theme.min.css" rel="stylesheet" type='text/css'>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <!-- <link rel="stylesheet" type="text/css" href="./css/animate.min.css"> -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js">
+                                                
+        </script>
+    </head>
+    
+    <body ng-controller='GilucCtrl'>
+        <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-default">
+                        <span class="sr-only">
+                            Toggle navigation
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                        <span class="icon-bar">
+                        </span>
+                    </button>
+                    <a class="navbar-brand" href="#">GiLuc Gifts</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-scrollspy" id="navbar-default">
+                    <ul class="nav navbar-nav ">
+                        <li ng-repeat="link in links">
+                            <a href="#navbar-{{link}}">{{link}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div class="jumbotron">
+            <h1>
+                GiLuc Gifts
+            </h1>
+            <p>
+                tu aimes bien giluc ? fais une promesse de don
+            </p>
+        </div>
+        <div class="container" id="container">
+            <div ng-repeat="link in links" id="navbar-{{link}}">
+                <h1 id="btn-dropdowns" class="page-header">
+                    {{link}}
+                </h1>
+                <div class="panel panel-default">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                désignation
+                            </th>
+                            <th class="table-q">
+                                quantité souhaitée
+                            </th>
+                            <th class="table-q">
+                                quantité promise
+                            </th>
+                            <!-- <th>k</th> -->
+                            <th class="table-q">
+                                je m'en occupe !
+                            </th>
+                        </tr>
+                        <tr ng-repeat="i in items[link]">
+                            <td>
+                                {{i.name}}
+                            </td>
+                            <td class="table-q">
+                                {{i.q}}
+                            </td>
+                            <td class="table-q">
+                                {{i.current}}
+                            </td>
+                            <td class="table-q">
+                            
+<!--                                 <button type="button" class="btn btn-danger">
+                                    -1
+                                </button>
+ -->
+ <!-- mailto:pouyajoon@gmail.com;jeanne.delcourt@gmail.com?subject=je m'occupe de {{i.family}} / {{i.name}}&amp;body=Salut, super.    -->
+                              <a href="" ng-if="i.current < i.q" type="button" class="btn btn-success btn-xs" ng-click="plusOne(i)">
+                                    +1
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
